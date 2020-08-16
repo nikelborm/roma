@@ -20,7 +20,6 @@ class App extends Component {
     } );
   }
   render() {
-    console.log('this.dataCache: ', this.dataCache);
     return (
       <div>
         { this.state.isUsersDownloaded
