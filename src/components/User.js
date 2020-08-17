@@ -23,4 +23,4 @@ const User = ({ id, name, surname, desc }) => {
     </>
   )
 }
-export default User;
+export default React.memo( User );
