@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from "./components/User";
-import ErrorReport from "./components/ErrorReport";
+import RequestErrorReport from "./components/RequestErrorReport";
 class App extends Component {
   state = {
     isUsersDownloaded : false,
@@ -32,9 +32,10 @@ class App extends Component {
     if ( this.state.isError ) {
       // Если выводит SyntaxError, то это значит, что вместо json файла пришла 404 html страница
       return (
-        <ErrorReport
+        <RequestErrorReport
           name={ this.state.error.name }
           message={ this.state.error.message }
+          path="/users.json"
         />
       );
     }
