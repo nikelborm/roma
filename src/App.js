@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import User from "./components/User";
 class App extends Component {
   state = {
     isUsersDownloaded : false,
@@ -23,7 +24,15 @@ class App extends Component {
     return (
       <div>
         { this.state.isUsersDownloaded
-          ? "тут нормально отрендендерить компоненты"
+          ? ( this.state.users.length
+            ? this.state.users.map( userInfo => (
+              <User
+                key={ userInfo.id }
+                { ...userInfo }
+              />
+            ))
+            : "Нет ни одного пользователя"
+          )
           : "Данные загружаются"
         }
       </div>
